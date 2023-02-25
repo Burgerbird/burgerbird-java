@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.awt.Rectangle;
 import java.util.Random;
 import java.awt.event.MouseListener;
-
-public class FlappyBird implements ActionListener, MouseListener {
+import java.awt.event.KeyListener;
+public class FlappyBird implements ActionListener, MouseListener, KeyListener{
 
     public static FlappyBird flappyBird;
 
@@ -37,6 +37,7 @@ public class FlappyBird implements ActionListener, MouseListener {
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setSize(WIDTH, HEIGH);
         jframe.addMouseListener(this);
+        jframe.addKeyListener(this);
         jframe.setResizable(false);
         jframe.setVisible(true);
 
@@ -201,6 +202,23 @@ public class FlappyBird implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+            jump();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
 
     }
 }
